@@ -1,0 +1,53 @@
+# 20 pileup events on top of the hard event
+# read an event with 3109 particles
+#--------------------------------------------------------------------------
+#                         FastJet release 3.0.3
+#                 M. Cacciari, G.P. Salam and G. Soyez                  
+#     A software package for jet finding and analysis at colliders      
+#                           http://fastjet.fr                           
+#                                                                       
+# Please cite EPJC72(2012)1896 [arXiv:1111.6097] if you use this package
+# for scientific work and optionally PLB641(2006)57 [hep-ph/0512210].   
+#								      	   
+# FastJet is provided without warranty under the terms of the GNU GPLv2.
+# It uses T. Chan's closest pair algorithm, S. Fortune's Voronoi code
+# and 3rd party plugin jet algorithms. See COPYING file for details.
+#--------------------------------------------------------------------------
+
+VertexJets >> class for corrJVF based tagging or grooming of jets.
+           >> running in tagging mode : corrJVF calculated for full jet
+           >> _selector_pu_ghosttracks: charged particle from pileup interaction
+           >> _selector_hs_ghosttracks: charged particle from hard-scatter
+           >> _selector_pTfracMin     : pt >= 0* pt_ref
+           >> _selector_corrJVF       : selecting jets passing corrJVF >= 0.6
+           >> _def_subjet             : uninitialised JetDefinition (jet_algorithm=undefined_jet_algorithm)
+           >> _subtractor             : NULL
+           >> _ghost_scale_factor     : 1
+           >> _tot_n_pu_tracks        : 503
+           >> _corrJVF_scale_factor   : 0.01
+           >> _corrJVF_cut            : 0.6   (-1 -> no cut. Note: jets failing the cut get their momenta rescaled by 0)
+
+>> anti-kt 0.4 jets: 
+      jet 0: pt 13.3 eta 1.12 phi 2.11 m 2.69 corrJVF 0.673
+      jet 1: pt 83.4 eta 2.14 phi 2.89 m 14.3 corrJVF 0.978
+      jet 2: pt 143 eta 0.664 phi 3.45 m 10.5 corrJVF 0.99
+      jet 3: pt 215 eta -1.07 phi 0.0693 m 8.41 corrJVF 0.994
+
+VertexJets >> class for corrJVF based tagging or grooming of jets.
+           >> running in grooming mode: corrJVF calculated for subjets
+           >> _selector_pu_ghosttracks: charged particle from pileup interaction
+           >> _selector_hs_ghosttracks: charged particle from hard-scatter
+           >> _selector_pTfracMin     : pt >= 0.05* pt_ref
+           >> _selector_corrJVF       : selecting jets passing corrJVF >= 0.6
+           >> _def_subjet             : Longitudinally invariant kt algorithm with R = 0.3 and E scheme recombination
+           >> _subtractor             : Subtractor that uses the following background estimator to determine rho: JetMedianBackgroundEstimator, using Longitudinally invariant kt algorithm with R = 0.4 and E scheme recombination with Active area (explicit ghosts) with ghosts of area 0.00997331 (had requested 0.01), placed up to y = 6, scattered wrt to perfect grid by (rel) 1, mean_ghost_pt = 1e-100, rel pt_scatter =  0.1, n repetitions of ghost distributions =  1 and selecting jets with |rap| <= 4
+           >> _ghost_scale_factor     : 1
+           >> _tot_n_pu_tracks        : 503
+           >> _corrJVF_scale_factor   : 0.01
+           >> _corrJVF_cut            : 0.6   (-1 -> no cut. Note: jets failing the cut get their momenta rescaled by 0)
+
+>> anti-kt 1.0 jets: 
+      jet 0: pt 141 eta 0.67 phi 3.45 mass 6.48
+         > subjet 0: pt 141 corrJVF 0.993
+      jet 1: pt 212 eta -1.07 phi 0.0682 mass -7.37
+         > subjet 0: pt 212 corrJVF 0.999
