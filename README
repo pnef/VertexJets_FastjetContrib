@@ -5,6 +5,8 @@ VertexJets is a class for corrJVF-based tagging or grooming of jets.
 Please refer to:
 ATLAS-CONF-2014-018
 https://cds.cern.ch/record/1700870
+and 
+https://atlas.web.cern.ch/Atlas/GROUPS/PHYSICS/CONFNOTES/ATLAS-CONF-2014-018/
 
 An example of how to use the code is given in examples.cc
 
